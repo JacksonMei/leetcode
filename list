@@ -1,0 +1,79 @@
+[TOC]
+
+# Linked List
+
+## categories 
+
++ singly-linked list
+
++ doubly-linked list
+
++ circular-linked list
+
+## algorithm pattern 
+
+remove one or some node except header （双指针）
+
+```c++
+Node* pre = head;
+Node* cur = head->next;
+
+while (cur) {
+    if (cur->val == val) { // 连续满足某种删除cur条件
+        pre->next = cur->next;
+    } else {
+        pre = cur;
+    }
+    
+    cur = cur->next;
+}
+```
+
+reverse (pre  cur -> next)   [left (start ... end) right]
+
+或用栈 先入后出
+
+```c++
+Node* pre = NULL;
+Node* cur = start; // 反转整个链表时start=head,right=NULL
+while (cur != right) {
+    Node* tmp = next;
+    cur->next = pre;
+    // cur->last = next 双向链表
+    pre = cur;
+    cur = tmp;
+}
+
+if (left) {
+    left->next = pre;
+}
+start->next = right;
+```
+
+# String
+
+```
+isdigit
+isalpha
+
+```
+
+
+
+## split
+
+```c++
+// input string str and need to split str with char c;
+for (int j = 0; j < str.size(); j++) {
+    if (ISVALID(str[j])) {
+        // adjust i if there requires without leading zeros
+        i += (j > i && str[i] == '0');
+    } else { // 1 2 3 _ _ 4 when j from _ to 4, i needs to be on 4.
+        auto one = str.substr(i, j - i);
+        i = j + 1;
+    }
+}
+```
+
+
+
