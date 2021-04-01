@@ -1,0 +1,69 @@
+[TOC]
+
+# String
+
+
+
+```c++
+isdigit(char c)
+isalpha(char c)
+string.substr(start, len); 
+std::string::npos size_t // 最大值-1，find等不存在时的返回值
+string::find(char c /*string str*/, size_t pos) //从pos位置查找字符c或字符串，返回第一个结果索引位置，不存在返回std::string::npos; KMP算法O(n)
+string::find_first_of //从pos位置开始查找字符c或字符串的任意字符，返回第一个结果索引位置  string::find_last_of 从尾部开始查找
+string::find_first_not_of/string::find_last_not_of //找第一个不匹配的
+```
+
+
+
+## split
+
+```c++
+// input string str and need to split str with char c;
+for (int j = 0; j < str.size(); j++) {
+    if (ISVALID(str[j])) {
+        // adjust i if there requires without leading zeros
+        i += (j > i && str[i] == '0');
+    } else { // 1 2 3 _ _ 4 when j from _ to 4, i needs to be on 4.
+        auto one = str.substr(i, j - i);
+        i = j + 1;
+    }
+}
+```
+
+
+
+判断两个str字母个数和数量相等
+
+```c++
+RETURN_FALSE(str1.size() != str2.size());
+for (auto c : str1) {
+	map[c]++; // map可以为std::map 或 int map[256] = {0};
+}
+
+// str2各字母数量都不小于str1时，但由于str1和str2 长度相同，则表明各字母数量相同
+for (auto c : str2) {
+    RETURN_IF(map[c]-- <= 0, false);
+}
+return true;
+```
+
+#### StringToInt
+
+合法性检查
+
++ 只以“-”或数字开头，不能以"-0"开头，或者长度大于1时"0开头"
++ str[1..N-1] 均为数字
+
+转换
+
++ 提取符号位预留
+
++ 计算过程中，要确保
+
+  ```c++
+  cur = '0' - str[i] // 若用int表示结果，则由于INT_MIN绝对值大于INT_MAX，只有负数才能存储最大的绝对值，因此计算过程用负数表示
+  res = res * 10 + cur // 确保不会溢出 res大于INT_MIN / 10， 或等于INT_MIN / 10时， cur >= INT_MIN % 10
+  ```
+
++ 符号转换， 若`res == INT_MIN`且符号为负，则失败。 
