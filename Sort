@@ -1,0 +1,50 @@
+[TOC]
+
+## Heapsort
+
++ parentPos = (child - 1) / 2 -》 lastparent = length / 2 - 1
++ 从heap数组尾部开始堆化，使得各个子树能依次冒泡到顶部
++ O(NlogN)的时间复杂度，O(1)的空间复杂度，若递归实现则需要O(logN)的空间复杂度
+
+
+
+```c++
+void heapSort(vector<int> heap, int parentPos)
+{
+    // build a heap
+    for (int i = heap.size() / 2 - 1; i >= 0; i--) {
+        heapify(heap, i);
+    }
+    
+    // sort  不停将尾部元素与堆顶交换
+ 	for (int i = heap.size() - 1; i > 0; i--) {
+        std::swap(heap[0], heap[i]);
+        heapify(heap, i, 0); // heap范围[0, i) 区域[i, size())为已升序区
+    }
+}
+
+// 校验根节点和各交换子节点, 未交换点未校验
+void heapify(vector<int> &heap, int end, int parentPos) {
+  while (true) {
+    int leftChildPos = parentPos * 2 + 1;
+    int rightChildPos = parentPos * 2 + 2;
+ 	int largestPos = parentPos;
+      
+    if (leftChildPos < end && heap[leftChildPos] > heap[largestPos]) {
+      largestPos = leftChildPos;
+    }
+    if (rightChildPos < end && heap[rightChildPos] > heap[largestPos]) {
+      largestPos = rightChildPos;
+    }
+
+    // If it's the parent, we're done
+    if (largestPos == parentPos) {
+      break;
+    }
+
+    std::swap(heap[largestPos], heap[parentPos]);
+    parentPos = largestPos; // 被交换的子节点位置开始检查堆条件
+  }
+	
+```
+
