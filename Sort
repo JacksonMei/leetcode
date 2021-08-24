@@ -1,6 +1,6 @@
 [TOC]
 
-## Heapsort
+### Heapsort
 
 + parentPos = (child - 1) / 2 -》 lastparent = length / 2 - 1
 + 从heap数组尾部开始堆化，使得各个子树能依次冒泡到顶部
