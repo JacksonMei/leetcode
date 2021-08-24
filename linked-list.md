@@ -78,20 +78,20 @@ Swap Values: x ^= y; y ^= x; x ^= y; // 即由于 (x ^ y) ^ y = x ^ (y ^ y) = x 
 ```c++
 vector<int> getKNumFrom10(int value, int k)
 {
-	vector<int> numK;	
-	while (value) {
-		numK.push_back(value % k);
+    vector<int> numK;	
+    while (value) {
+        numK.push_back(value % k);
         value /= k;
-	}
+    }
     return numK;
 }
 
  get10NumFromK(vector<int> numK, int k)
 {	
-     int value = 0;
-	for (int i = numK.size() - 1; i >= 0; i--) {
+    int value = 0;
+    for (int i = numK.size() - 1; i >= 0; i--) {
         value = value * K + num;   
-	}
+    }
     return ret;
 }
 ```
