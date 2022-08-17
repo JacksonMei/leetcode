@@ -34,7 +34,6 @@ dict = defaultdict(int)
 ```
 
 ## char
-###char <=> int
 ```
 ord('a') = 97
 chr(97) = 'a'
