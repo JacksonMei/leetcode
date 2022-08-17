@@ -23,13 +23,19 @@ setA.update(B, C) # add B and C (B, C can be dict, list or set) to set A
 
 
 ## dict
+```
 dict = {w:v for w in word}
 dict = defaultdict(int)
+```
 
 ## str
+```
 "".join(list) => "".join(w for w in word)
+```
 
 ## char
-###char <=> int 
+###char <=> int
+```
 ord('a') = 97
 chr(97) = 'a'
+```
