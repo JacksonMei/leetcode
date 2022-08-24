@@ -38,3 +38,19 @@ dict = defaultdict(int)
 ord('a') = 97
 chr(97) = 'a'
 ```
+
+## math
+
+math.log(a, base) # = log(a) / log(base)
+math.log(a) # base default as e
+math.log2(a) # base = 2
+
+math.sqrt(x) # x >= 0
+math.floor(x) # return the largest integer not greater than x.           -23.11 ->  -24.0
+math.ceil(x) # return the smallest integer greater than or equal to x.   300.72 -> 300.0
+
+round(number, ndigits) # returns a floating-point number rounded to the specified number of decimals.
+round(10.7) # ndigits defaults to 0, -> 11
+round(2.675, 2) -> 2.67   # most decimal fractions can't be represented exactly as a float.  2.67 == 2.674999999
+print(round(Decimal('2.675'), 2))  # -> 2.68 using decimal.Decimal (passed float as string for precision)
+
