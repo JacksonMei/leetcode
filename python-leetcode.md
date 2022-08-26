@@ -54,3 +54,8 @@ round(10.7) # ndigits defaults to 0, -> 11
 round(2.675, 2) -> 2.67   # most decimal fractions can't be represented exactly as a float.  2.67 == 2.674999999
 print(round(Decimal('2.675'), 2))  # -> 2.68 using decimal.Decimal (passed float as string for precision)
 
+
+## algorithm
+itertools.permutations(list) # return a tuple list
+itertools.combinations([1, 2, 3], 2) 
+any(cand[0] != '0' and bin(int(''.join(cand))).count('1') == 1 for cand in permutations(str(n)))
