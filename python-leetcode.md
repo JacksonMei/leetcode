@@ -71,3 +71,16 @@ any(cand[0] != '0' and bin(int(''.join(cand))).count('1') == 1 for cand in permu
 
 map(func, iter1, iter2) # map(lambda x, y: x + y, (x1, x2), (y1, y2))
 
+#### bisec
+```
+bisect.bisect_left(a, x, lo=0, hi=len(a), *, key=None)
+The returned insertion point i partitions the array a into two halves so that all(val < x for val in a[lo : i]) for the left side and all(val >= x for val in a[i : hi]) for the right side.
+
+
+bisect.bisect_right/bisect.bisect(a, x, lo=0, hi=len(a), *, key=None)
+The returned insertion point i partitions the array a into two halves so that all(val <= x for val in a[lo : i]) for the left side and all(val > x for val in a[i : hi]) for the right side.
+
+
+bisect.insort_left  # use bisect.bisect_left to get an insertion point (O(log n), then it runs list.insert (O(n)) on `a` and insert `x` at the insertion point to maintain sort order
+bisect.insort_right/bisect.insort
+```
