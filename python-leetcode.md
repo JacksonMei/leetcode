@@ -61,6 +61,7 @@ round(2.675, 2) -> 2.67   # most decimal fractions can't be represented exactly 
 
 print(round(Decimal('2.675'), 2))  # -> 2.68 using decimal.Decimal (passed float as string for precision)
 
+math.inf # -math.inf defines a negative infinite integer
 
 ## algorithm
 itertools.permutations(list) # return a tuple list
