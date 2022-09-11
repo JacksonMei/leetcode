@@ -85,3 +85,12 @@ The returned insertion point i partitions the array a into two halves so that al
 bisect.insort_left  # use bisect.bisect_left to get an insertion point (O(log n), then it runs list.insert (O(n)) on `a` and insert `x` at the insertion point to maintain sort order
 bisect.insort_right/bisect.insort
 ```
+
+# heap
+```
+heap = []
+heapq.heappush(heap, item)
+item = heapq.heappop(heap) # return the smallest item
+heapq.heapify(list1) # Transform list x into a heap, in-place, in linear time.
+item = heapq.heapmerge(list1, list2, list3, , key=None, reverse=False) # Merge multiple sorted inputs into a single sorted output
+```
