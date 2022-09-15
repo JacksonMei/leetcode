@@ -26,6 +26,11 @@ setA.update(B, C) # add B and C (B, C can be dict, list or set) to set A
 ```
 dict = {w:v for w in word}
 dict = defaultdict(int)
+
+#### Counter
+c = collections.Counter(A)
+sorted(c) # sort the counter
+list(c.elements()) # Return an iterator over elements repeating each as many times as its count. 
 ```
 
 ## str
