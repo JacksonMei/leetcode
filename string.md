@@ -94,6 +94,7 @@ return true;
 
 + 任意 `str= strA + strB`,  则任意`strB + strA` 均为str的旋转字符串
 + `str + str = strA + strB + strA + strB`, 因此str+str中与str等长的子串均为str的旋转字符串，所以判断另一字符串是否为str+str的子串即可。
++ `str1.size() == str2.size() && str.find(str1) != str.end()`
 
 #### 实现1
 
