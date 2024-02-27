@@ -1,3 +1,33 @@
+## list
+listA = [0] * n   => 
+listAB = [[0]] * n  =>  n ref of [0]
+```
+a = [[1]] * 10
+a[0][0] = 33
+print(a) # [[33], [33], [33], [33], [33], [33], [33], [33], [33], [33]]
+```
+
+listAB = [[0] for _ in range(n)]
+```
+a = [[1] for _ in range(10)]
+a[0][0] = 33
+print(a) # [[33], [1], [1], [1], [1], [1], [1], [1], [1], [1]]
+```
+
+# find element in the list
+i = listA.index(b) if b in listA else -1 # find b in listA and return the first index
+
+## queue
+
+from collections import deque
+
+queue = deque([(start, 0)])
+current_node, distance = queue.popleft()  # Dequeue the next node from the left side
+queue.append((neighbor, distance + 1))   # add node to the right side of the queue
+
+
+# Example 
+
 ## set
 ```
 set = {w for w in word}
@@ -17,7 +47,7 @@ setA.issubset(setB) # return True if set A is subset of set B
 setA.union(setB) # # return a new set from distinct element from all the sets
 
 setA.update(B, C) # add B and C (B, C can be dict, list or set) to set A
-{1, 3}.update('odd', {2, 4}, [5, 6], {'key': 1, 'lock' : 2}) => {1, 2, 3, 4, 5, 6, 'key', 'o', 'd', 'd'}
+{1, 3}.update('odd', {2, 4}, [5, 6], {'key': 1, 'lock' : 2}) => {1, 2, 3, 4, 5, 6, 'key', 'lock', 'd', 'o'}
 
 ```
 
