@@ -133,7 +133,7 @@ return true;
 // 若p[i][j]表示str[i...j] 是否是回文字符串, 则有
 p[i][j] = str[i] == str[j] && (j - i < 2 || p[i + 1][j - 1])
     
-// 根据以上公式， i需要递减，j需要递增，因此
+// 根据以上公式， 当前点为（i，j）, 则下一个点为（i-1, j+1），因此i需要递减，j需要递增
 for (int i = str.size() - 1; i >= 0; i--) {
     for (int j = i; j < str.size(); j++) {
         p[i][j] = str[i] == str[j] && (j - i < 2 || p[i + 1][j - 1]);
