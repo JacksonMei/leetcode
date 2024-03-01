@@ -1,3 +1,34 @@
+
+## Mutable vs Immutable Objects
+### Immutable objects
++ like integers, strings, and tuples, cannot be altered. When you attempt to change an immutable object, what actually happens is the creation of a new object in memory.
++ if you try to modify an immutable variable (like an integer) defined in an outer scope within a nested function, without declaring it as nonlocal, Python will create a new local variable in the nested function's scope.
+### Mutable objects
++ such as lists, dictionaries, and sets, can be modified in place.
++ This means you can alter the content of a mutable object without changing its identity (its location in memory).
+```
+def findFrequentTreeSum(self, root: Optional[TreeNode]) -> List[int]:
+        count = defaultdict(int)
+        max_count = [0]  # Use a list for mutable integer
+
+        def dfs(root):
+            if not root:
+                return 0
+            
+            left_sum = dfs(root.left)
+            right_sum = dfs(root.right)
+            tree_sum = left_sum + right_sum + root.val
+            count[tree_sum] += 1
+            
+            # Update max_count[0] since max_count is a list;   or use interger and use "nolocal max_count" here
+            max_count[0] = max(max_count[0], count[tree_sum])
+            
+            return tree_sum
+
+        dfs(root)
+        # Use max_count[0] to access the updated maximum count
+        return [k for k, v in count.items() if v == max_count[0]]
+```
 ## list
 listA = [0] * n   => 
 listAB = [[0]] * n  =>  n ref of [0]
@@ -66,6 +97,9 @@ list(c.elements()) # Return an iterator over elements repeating each as many tim
 ## str
 ```
 "".join(list) => "".join(w for w in word)
+
+ count = str.count('1')   # Counter(str)['1']
+ return '1' * count #'11111'
 ```
 
 ## char
