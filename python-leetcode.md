@@ -43,6 +43,13 @@ listAB = [[0] for _ in range(n)]
 a = [[1] for _ in range(10)]
 a[0][0] = 33
 print(a) # [[33], [1], [1], [1], [1], [1], [1], [1], [1], [1]]
+
+
+
+numbers = [7, 3, 11, 2, 5]
+
+# reverse is set to True for sort in Descending order
+numbers.sort(reverse = True)
 ```
 
 # find element in the list
