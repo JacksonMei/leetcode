@@ -25,6 +25,16 @@ s1 := "hello world"
 s2 := 'This is a
 world
 '
+
+// string lower letter.
+s=strings.ToLower(arr)
+// max int
+math.MaxInt32
+
+// string -> int
+strconv.Atoi(res) // like ”2“ -> 2
+// int -> string
+strconv.Itoa(res)
 ```
 
 ## Map
