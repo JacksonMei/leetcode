@@ -1,3 +1,88 @@
+# Data Structure
+## Vector
+```cpp
+std::vector<int> vec;
+vec.push_back(1);
+vec.pop_back();
+vec.size();
+vec.empty();
+```
+    
+## Queue
+```cpp
+std::queue<int> q;
+q.push(1);
+q.push(2);
+q.pop();
+std::cout << "Front of queue: " << q.front() << std::endl;
+std::cout << "Back of queue: " << q.back() << std::endl;
+```
+
+## Stack
+```cpp
+std::stack<int> s;
+s.push(1);
+s.push(2);
+s.pop();
+```
+
+## Priority_Queue
+```cpp
+    std::priority_queue<int> pq; // 最大堆
+    pq.push(3);
+    pq.push(1);
+    pq.pop();
+
+   priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> que; // 最小堆，堆顶是最小值
+
+   auto compare = [](const pair<int, int> &lhs, const pair<int, int> &rhs) {
+       return (lhs.first > rhs.first) || (lhs.first == rhs.first && lhs.second > rhs.second);
+   };
+   priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(compare)> que(compare);
+
+  que.emplace(0, k);
+  auto [val, cur] = que.top();
+        
+```
+
+## map/Unordered_map/ set/ unordered_set
+```
+std::map<std::string, int> m; // 或者unordered_map
+m["apple"] = 5;
+m.erase("apple");
+
+m.insert(std::make_pair("orange", 7));
+std::map<std::string, int>::iterator it = myMap.find("banana");
+if (it != myMap.end()) {
+// 找到元素
+}
+
+
+std::set<int> us; // 或者unordered_set
+us.insert(1);
+us.insert(2);
+us.erase(1);
+auto it = us.find(2);
+if (it != us.end()) {
+// 找到元素
+}
+```
+
+## List
+```
+std::list<int> lst;
+lst.push_back(1);
+lst.push_front(2);
+lst.pop_back();
+lst.pop_front();
+lst.insert(lst.begin(), 3); // 在list begin前插入元素3
+lst.erase(lst.begin());
+std::cout << "Size of list: " << lst.size() << std::endl;
+lst.empty();
+
+```
+
+
 # Common-used Function
 
 ## sort
