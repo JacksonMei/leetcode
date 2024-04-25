@@ -28,25 +28,25 @@ s.pop();
 
 ## Priority_Queue
 ```cpp
-    std::priority_queue<int> pq; // 最大堆
-    pq.push(3);
-    pq.push(1);
-    pq.pop();
+std::priority_queue<int> pq; // 最大堆
+pq.push(3);
+pq.push(1);
+pq.pop();
 
-   priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> que; // 最小堆，堆顶是最小值
+priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> que; // 最小堆，堆顶是最小值
 
-   auto compare = [](const pair<int, int> &lhs, const pair<int, int> &rhs) {
-       return (lhs.first > rhs.first) || (lhs.first == rhs.first && lhs.second > rhs.second);
-   };
-   priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(compare)> que(compare);
+auto compare = [](const pair<int, int> &lhs, const pair<int, int> &rhs) {
+   return (lhs.first > rhs.first) || (lhs.first == rhs.first && lhs.second > rhs.second);
+};
+priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(compare)> que(compare);
 
-  que.emplace(0, k);
-  auto [val, cur] = que.top();
+que.emplace(0, k);
+auto [val, cur] = que.top();
         
 ```
 
 ## map/Unordered_map/ set/ unordered_set
-```
+```cpp
 std::map<std::string, int> m; // 或者unordered_map
 m["apple"] = 5;
 m.erase("apple");
@@ -69,7 +69,7 @@ if (it != us.end()) {
 ```
 
 ## List
-```
+```cpp
 std::list<int> lst;
 lst.push_back(1);
 lst.push_front(2);
@@ -90,7 +90,9 @@ lst.empty();
 ```cpp
 
 reverse(v.begin(), v.end()) // 倒序
-
+排序算法：std::sort()
+二分查找算法：std::binary_search()
+字符串处理：std::string及其相关方法，如find()、substr()等
 sort(a.begin(),a.end(),less<int>()); // 降序排列
 
 sort(vals.begin(), vals.end(),[](int a,int b){return abs(a)<abs(b);});
@@ -105,7 +107,6 @@ static bool cmp(vector<int>& a, vector<int>& b){//static关键字不能丢
       ...
   }
 
-
 ```
 
 ## math related Function
@@ -119,8 +120,21 @@ std::swap(a, b);
 double pow(double base, double exponent) // 指数
 double sqrt(double x) // 开根号
 
+
+std::abs() // 绝对值
+
 ```
 
+## algorithm search
+```cpp
+    std::vector<int> vec = {1, 3, 5, 7, 9, 11, 13, 15, 17, 19};
+    int target = 11;
+    // 使用binary_search搜索
+    bool found = std::binary_search(vec.begin(), vec.end(), target);
+    if (found) {
+        std::cout << "找到了目标元素 "  << std::endl;
+    }
+```
 
 ## String related function
 ```cpp
