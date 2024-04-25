@@ -1,4 +1,43 @@
-[TOC]
+## Dijsktra 最短路径算法
+
+
+```cpp
+// https://leetcode.com/problems/network-delay-time/
+class Solution {
+public:
+    int networkDelayTime(vector<vector<int>>& times, int n, int k) {
+        vector<bool> visited(n + 1, false);
+        vector<int> dis(n + 1, INT_MAX);
+        unordered_map<int, vector<pair<int, int>>> edges;
+
+        for (auto time : times) {
+            edges[time[0]].emplace_back(time[1], time[2]);
+        }
+        // 最小堆（默认less,最大堆）， 自动排序pair<int, int>
+        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> que;
+        que.emplace(0, k);
+        dis[k] = 0;
+
+        while (!que.empty()) {
+            auto [val, cur] = que.top(); // 优先队列，找出队列中到源点最近的节点！！！
+            que.pop();
+            if (!visited[cur]) {
+                visited[cur] = true;
+
+                for (auto &[next, val] : edges[cur]) {
+                    if (dis[next] > dis[cur] + val) {
+                        dis[next] = dis[cur] + val;
+                        que.emplace(dis[next], next);
+                    }
+                }
+            }
+        }
+
+        auto result = *max_element(dis.begin() + 1, dis.end());
+        return result == INT_MAX ? -1 : result;
+    }
+};
+```
 
 ## Divide and Conquer
 
