@@ -33,11 +33,6 @@ world
 
 // string lower letter.
 s=strings.ToLower(arr)
-// max int
-math.MaxInt32
-math.MinInt32
-math.MaxInt64
-math.MinInt64
 
 // string -> int
 strconv.Atoi(res) // like ”2“ -> 2
@@ -193,7 +188,28 @@ sort.Slice(strs, func(i, j int) bool {
 ```
 
 ### math
+```Golang
+// max int
+math.MaxInt32
+math.MinInt32
+math.MaxInt64
+math.MinInt64
 
+//  输入输出及返回都是float64
+math.Abs(-5) // 返回 5
+math.Floor(3.14) // 返回 3
+math.Ceil(3.14)  // 返回 4
+math.Round(3.14) // 返回 3, 四舍五入
+math.Pow(2, 3) // 返回 2 的 3 次方，即 8，
+math.Sqrt(9) // 返回 3
+
+math.Exp(1)  // 返回 e 的 1 次幂，即 e， 指数
+math.Log(10) // 返回 10 的自然对数，对数
+
+math.Max(2, 5) // 返回较大的数，即 5
+math.Min(2, 5) // 返回较小的数，即 2
+
+```
 
 # Typical Code Snip
 
