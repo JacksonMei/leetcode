@@ -64,7 +64,7 @@ fmt.Println(newStr) // 输出：Hello, Go
 
 
 ## Map
-```
+```Golang
 // 创建一个哈希表
 hashMap := make(map[int]string)
 
@@ -124,7 +124,7 @@ fmt.Println(nums) // Output: [1 2 4 5 7]
 ```
 
 #### sort.Strings
-``` 
+``` Golang
 // Sort a slice of strings in ascending order
 strs := []string{"banana", "apple", "orange", "grape"}
 sort.Strings(strs)
@@ -133,7 +133,7 @@ fmt.Println(strs) // Output: [apple banana grape orange]
 ```
 
 #### sort.Slice (对各类slice排序，需提供比较函数)
-```
+```Golang
 // 对整数切片进行排序
 nums := []int{4, 2, 7, 1, 5}
 sort.Slice(nums, func(i, j int) bool {
@@ -156,7 +156,7 @@ sort.Slice(strs, func(i, j int) bool {
 
 
 ### binary Search
-```
+```Golang
 func binarySearch(nums []int, target int) int {
     left, right := 0, len(nums)-1 // Fix: Initialize right pointer to len(nums)-1
     for left <= right {
