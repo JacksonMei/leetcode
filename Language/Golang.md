@@ -35,6 +35,9 @@ world
 s=strings.ToLower(arr)
 // max int
 math.MaxInt32
+math.MinInt32
+math.MaxInt64
+math.MinInt64
 
 // string -> int
 strconv.Atoi(res) // like ”2“ -> 2
@@ -218,4 +221,33 @@ func binarySearch(nums []int, target int) int {
 ```
 
 ### Type convertion
+```Golang
+// int <-> float
+var x int = 10
+var y float64 = float64(x) // 将 int 转换为 float64
+num := int(y)
 
+// int -> str
+num := 10
+str := strconv.Itoa(num)
+
+// str -> int
+str := "10"
+num, err := strconv.Atoi(str)
+if err != nil {
+    // 处理错误
+}
+
+
+
+// 指针转换，需确保类型兼容
+var x int = 10
+var ptr *int = &x
+var ptr64 *int64 = (*int64)(ptr) // 将 *int 指针转换为 *int64 指针
+
+// 接口转换
+var x interface{} = 10
+var y int = x.(int) // 将 interface{} 转换为 int
+
+
+```
