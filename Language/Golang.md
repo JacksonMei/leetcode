@@ -86,6 +86,48 @@ if _, ok := hashMap[3]; ok {
 
 ## Heap
 
+最小堆实现 算法题https://leetcode.com/problems/kth-largest-element-in-an-array/
+```
+import (
+	"container/heap"
+	"fmt"
+)
+type IntHeap []int
+
+
+func (h IntHeap) Len() int { return len(h) }
+func (h IntHeap) Less(i, j int) bool { return h[i] < h[j] }
+func (h IntHeap) Swap(i, j int) { h[i], h[j] = h[j], h[i] }
+
+func (h *IntHeap) Push(x any) { // define interface from "container/heap"
+     *h = append(*h, x.(int))
+}
+
+func (h *IntHeap) Pop() any { // define interface from "container/heap"
+    // old := *h
+	// n := len(old)
+	// x := old[n-1]
+	// *h = old[0 : n-1]
+	// return x
+    result := (*h)[len(*h)-1] // 使用 := 声明并赋值一个新变量 result
+    *h = (*h)[:len(*h)-1]     // 对 *h 进行更新，删除最后一个元素
+    return result
+}
+
+func findKthLargest(nums []int, k int) int {
+    h := &IntHeap{}
+    heap.Init(h)
+
+    for _, num := range nums {
+        heap.Push(h, num)
+        if h.Len() > k { // min-heap 顶部是最小的值，每次都弹出了最小值，所以留下的是最大K个值。
+            heap.Pop(h)
+        }
+    }
+
+    return heap.Pop(h).(int)
+}
+```
 ## Tree
 ```Golang
 type TreeNode struct {
